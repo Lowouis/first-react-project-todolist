@@ -1,14 +1,16 @@
-export default function Fruit(props){
+export default function Fruit(){
     //State
 
 
     //Comportement
 
     //Affichage
-    return (<li key={props.fruitData.id}>
-            {props.fruitData.nom}{" "}
-                <button onClick={() => {props.onFruitDelete(props.fruitData.id)}}>
-                    X
-                </button>
-            </li>);
+    return (<div>Fruit</div>);
 }
+
+//<li key={fruit.id}>
+//    {fruit.nom}{" "}
+//    <button onClick={deleteFruit}>
+//        Supprimer
+//    </button>
+//</li>

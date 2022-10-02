@@ -1,0 +1,44 @@
+html{
+    background-color: #001f3f;
+    color: black;
+}
+body{
+    background-color:#001f3f ;
+}
+.wrapper{
+    background-color: white;
+    width: 35%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.title{
+    text-align: center;
+
+}
+.container--todo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sumbit--add{
+    display: flex;
+
+}
+.sumbit--add input{
+    width: 80%;
+}
+.sumbit--add button{
+    width: 20%;
+    margin-left: 10px;
+}
+
+.bt-cw{
+    margin-left: 10px;
+}
+.container--todo lo{
+    margin: 5px 0 5px 0;
+}
+

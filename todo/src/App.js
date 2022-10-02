@@ -1,15 +1,11 @@
 import {useState} from "react";
-import Fruit from "./components/Fruit";
+import "./styles.css"
 
 
 function App() {
   // state (état ou donnée (data)
     const [compteur,setCompteur] = useState(1)
-    const [fruits,setFruit] = useState([
-        {id: 1, nom: "banane"},
-        {id: 2, nom: "coco"},
-        {id: 3, nom: "pomme"}
-    ])
+    const [fruits,setFruit] = useState([])
     const [newFruit, setNewFruit] = useState("")
   //comportement
 
@@ -24,6 +20,7 @@ function App() {
         const FruitsCopy = [...fruits]
         FruitsCopy.push({id : new Date().getTime(), nom : newFruit})
         setFruit(FruitsCopy)
+        setNewFruit("")
     }
     const handeChange = (event) => {
         event.preventDefault()
@@ -31,19 +28,22 @@ function App() {
     }
 
   //affichage (render => re-render)
-    return <div>
-        <h1>Liste de fruits</h1>
-        <ul>
-        {fruits.map((fruit)=> {
-            <Fruit fruitData={ fruit } onFruitDelete={ deleteFruit } />
-        })}
+
+    return <div className="wrapper">
+        <h1 className="title">Tâches à faire : </h1>
+        <ul className="container--todo">
+            {fruits.map((fruit) => (
+            <lo key={fruit.id}>{fruit.nom}
+                <button onClick={()=>(deleteFruit(fruit.id))} className="bt-cw btn btn-primary">
+                    <i className="fa-solid fa-trash-can "></i>
+                </button>
+            </lo>
+            ))}
         </ul>
-        <form action='submit' onSubmit={handeSubmit}>
-            <input value={ newFruit } type='text' placeholder="Entrez un fruit" onChange={handeChange}></input>
-            <button>Add</button>
+        <form action='submit' onSubmit={handeSubmit} className="sumbit--add">
+            <input className="form-control" value={ newFruit } type='text' placeholder="Entrez une note" onChange={handeChange}></input>
+            <button className="btn btn-primary">Ajouter</button>
         </form>
-        <h1>{ compteur}</h1>
-        <button onClick={Incremente}>Incrémente</button>
     </div>
 }
 
